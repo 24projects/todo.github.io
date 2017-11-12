@@ -1,0 +1,43 @@
+<html>
+ <head>
+   <title>My TO DO list</title>
+ </head>
+ <body>
+   <h1>TO DO</h1>   
+   <div>
+        <ul id="todo">
+            <li>Buy fruits</li>
+            <li>Pick up the repaired oven</li>
+        </ul>
+        <input type="text" id="newItem" size ="100"/>
+        <input type="button" id="btnAdd" value="Add" onclick="addItem()" />
+    </div>
+	
+<script src="jQuery.js"></script>
+	
+<script>
+    console.log("script called");
+    function addItem(){
+	    console.log("function called");
+        var li = document.createElement("LI");  
+        var input = document.getElementById("newItem");
+        li.innerHTML = input.value;
+        input.value = "";
+
+		console.log(li.innerHTML);
+        document.getElementById("todo").appendChild(li);
+    }
+	
+/*
+	$("#todo li").click(function (e) {
+  $(this).wrap("<strike>");
+});
+*/
+
+$("#todo").on("click", "li", function(){
+    $(this).wrap("<strike>");
+});
+
+</script>	
+ </body>
+</html>
